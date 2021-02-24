@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, NSXMLParserDelegate {
+class ViewController: UIViewController, XMLParserDelegate {
 	
 	// MARK: - Properties
 	
@@ -33,12 +33,12 @@ class ViewController: UIViewController, NSXMLParserDelegate {
 		// Place storyboard path here.
 		let path = "/Volumes/Warehouse/Main.storyboard"
 		
-		if !NSFileManager().fileExistsAtPath(path) {
+        if !FileManager().fileExists(atPath: path) {
 			fatalError("Error: File doesn't exsit.");
 		}
 		
 		// nib serialization
-		guard let xmlParser = NSXMLParser(contentsOfURL: NSURL(fileURLWithPath: path)) else {
+        guard let xmlParser = XMLParser(contentsOf: NSURL(fileURLWithPath: path) as URL) else {
 			fatalError("Error: File format may be incorrect.");
 		}
 		
@@ -48,12 +48,12 @@ class ViewController: UIViewController, NSXMLParserDelegate {
 	
 	// MARK: - NSXMLParserDelegate methods
 	
-	func parserDidStartDocument(parser: NSXMLParser) {
+    func parserDidStartDocument(parser: XMLParser) {
 		
 		print("---parserDidStartDocument---")
 	}
 	
-	func parser(parser: NSXMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
+    func parser(parser: XMLParser, didStartElement elementName: String, namespaceURI: String?, qualifiedName qName: String?, attributes attributeDict: [String : String]) {
 		
 		// record id and the corresponding view item in dictionary if it has one
 		if let viewItemId = attributeDict["id"] {
@@ -68,7 +68,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
 		
 		// prepare when enter <constraints>
 		if elementName == "constraints" {
-			constraintsFlag++
+			constraintsFlag += 1
 			currentViewItemName = elementInfoStack.top()!.attributeDict["id"]!
 		}
 		
@@ -122,14 +122,14 @@ class ViewController: UIViewController, NSXMLParserDelegate {
 		}
 		
 		// push element info into info stack
-		elementInfoStack.push( (elementName, attributeDict) )
+        elementInfoStack.push( item: (elementName, attributeDict) )
 	}
 	
-	func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
+    func parser(parser: XMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
 		
 		// decrease constraintsFlag when getting out of "constraints" element
 		if elementName == "constraints" {
-			constraintsFlag--
+			constraintsFlag -= 1
 			currentViewItemName = ""
 		}
 		
@@ -137,7 +137,7 @@ class ViewController: UIViewController, NSXMLParserDelegate {
 		elementInfoStack.pop()
 	}
 	
-	func parserDidEndDocument(parser: NSXMLParser) {
+    func parserDidEndDocument(parser: XMLParser) {
 		
 		print(constraintsCode)
 		print("---parserDidEndDocument---")

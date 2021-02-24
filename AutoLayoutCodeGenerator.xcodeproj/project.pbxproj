@@ -12,9 +12,9 @@
 		E44A045A1BFB260100972A9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E44A04591BFB260100972A9F /* Assets.xcassets */; };
 		E44A045D1BFB260100972A9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E44A045B1BFB260100972A9F /* LaunchScreen.storyboard */; };
 		E44A04681BFB260100972A9F /* AutoLayoutCodeGeneratorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A04671BFB260100972A9F /* AutoLayoutCodeGeneratorUITests.swift */; };
-		E44A04731BFB260100972A9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A04721BFB260100972A9F /* ViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		E44A04751BFB260100972A9F /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A04741BFB260100972A9F /* Stack.swift */; settings = {ASSET_TAGS = (); }; };
-		E44A04791BFB260100972A9F /* ConstraintedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A04771BFB260100972A9F /* ConstraintedView.swift */; settings = {ASSET_TAGS = (); }; };
+		E44A04731BFB260100972A9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A04721BFB260100972A9F /* ViewController.swift */; };
+		E44A04751BFB260100972A9F /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A04741BFB260100972A9F /* Stack.swift */; };
+		E44A04791BFB260100972A9F /* ConstraintedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44A04771BFB260100972A9F /* ConstraintedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,6 +165,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -338,6 +339,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pear.AutoLayoutCodeGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -349,6 +351,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.pear.AutoLayoutCodeGenerator;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -395,6 +398,7 @@
 				E44A046E1BFB260100972A9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E44A046F1BFB260100972A9F /* Build configuration list for PBXNativeTarget "AutoLayoutCodeGeneratorUITests" */ = {
 			isa = XCConfigurationList;
@@ -403,6 +407,7 @@
 				E44A04711BFB260100972A9F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
